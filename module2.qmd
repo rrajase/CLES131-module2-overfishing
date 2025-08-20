@@ -1,0 +1,43 @@
+---
+title: "Module 2: Overfishing"
+format: html
+editor: visual
+---
+
+```{r}
+#| warning: false
+#| output-location: false
+library(tidyverse)
+```
+
+## Overexploitation of global fisheries
+
+We will examine the state of global fisheries and seek to reproduce some of the most widely cited examples of species collapse, examining the evidence behind an influential paper on glboal fisheries, [Worm et al. 2006](https://doi.org/10.1126/science.1132294). However, rather than using the 1950-2003 dataset available to Worm and colleagues in 2006, we will be drawing from more recent stock assessment data to see how the trends have fared. 
+
+We also begin to explore how to manipulate tabular data using relational database concepts. Instead of working with independent dataframes, as in Module 2, we will be working with a large relational database consisting of tables of different shapes and sizes, but are related through one or more IDs.
+
+## The Database
+
+We will use data from the [RAM Legacy Stock Assessment Database](https://www.ramlegacy.org/database/). Note that the database files are available through Zenodo; you will download and unzip the file, moving the .RData file only into your own `data/` folder within this project. 
+
+Use the code below to load up the tables in this database. 
+```{r}
+load("data/DBdata[asmt][v4.66].RData")
+```
+
+A selected set of documentation have been provided in `documentation/`. Start with the Database Quickstart Guide and explore some of the tables in this database. 
+
+### Question 1
+How many unique fish stocks are in the `timeseries` table?
+
+```{r}
+stocks <- unique(timeseries$stocklong)
+```
+### Question 2
+How many unique fish stocks comprise "Atlantic cod"?
+
+```{r}
+grep("Atlantic cod", stocks)
+```
+
+## North Atlantic Cod 
