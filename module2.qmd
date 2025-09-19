@@ -11,13 +11,14 @@ editor_options:
 library(tidyverse)
 ```
 
-## Team members, etc
 
-List your team member(s):
+### Use of GitHub
 
-Include a link to your forked GH repository:
+Link to your forked GH repository:
 
-Include a link to your .qmd file:
+### Use of Quarto
+
+Link to your .qmd file:
 
 ## Overexploitation of global fisheries
 
@@ -82,9 +83,13 @@ There are two main data tables described in section C, but their key attributes 
 -   What is accomplished by joining these tables?
 
 
+## Overexploitation of Atlantic cod
+
+The database is clearly complex and contains a lot of information. We've grappled with its high dimensionality by exploring and joining tables above. Next, we will take a "bottom-up" approach and evaluate a single species, Atlantic cod. Read this [book chapter](https://pressbooks.pub/extinctionstories/chapter/atlantic-cod/) on Atlantic cod, which serves as a reference for the following questions.
+
 ### Q5 (1 point)
 
-This database is clearly complex and contains a lot of information. We've grappled with its high dimensionality by exploring and joining tables above. Next, we will take a "bottom-up" approach and evaluate a single species, Atlantic cod. Read this [book chapter](https://pressbooks.pub/extinctionstories/chapter/atlantic-cod/) on Atlantic cod, which will be referenced in some of the following questions.
+The collapse of the Atlantic cod fisheries is well documented. Let's see if we can visualize that decline with this database. 
 
 -   How many unique fish stocks comprise "Atlantic cod" and what regions do they come from?
 
@@ -116,4 +121,4 @@ Under the Management Policies section of the [book chapter](https://pressbooks.p
 
 ### Q9 (1 point)
 
-What happened to Atlantic cod stocks for each region following each piece of legislation or management plan, and why do you think this was so? Your multi-paragraph answer should be informed by content from the book chapter; additional sources are optional and citations are needed.
+What happened to Atlantic cod stocks for each region following each piece of legislation or management plan, and why do you think this was so? Your answer should be informed by content from the book chapter; additional sources are optional, and all sources should be cited.
