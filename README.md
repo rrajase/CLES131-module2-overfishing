@@ -1,7 +1,7 @@
 # Module 2: Overfishing
 
 ## Team members and contributions
-To be updated
+Ria Rajasekar
 
 ## Learning objectives
 

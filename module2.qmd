@@ -14,11 +14,11 @@ library(tidyverse)
 
 ### Use of GitHub
 
-Link to your forked GH repository:
+Link to your forked GH repository: https://github.com/rrajase/CLES131-module2-overfishing#
 
 ### Use of Quarto
 
-Link to your .qmd file:
+Link to your .qmd file: https://github.com/rrajase/CLES131-module2-overfishing/blob/main/module2.qmd
 
 ## Overexploitation of global fisheries
 
