@@ -6,32 +6,24 @@ To be updated
 ## Learning objectives
 
  - Practice reproducible and version-controlled coding
- - Understand the relationship between biodiversity and marine ecosystem functioning/services
- - Access non-rectagular data in a database and tidy for visualization
- - Reproduce and evaluate figures from Worm et al. 2006
+ - Explore documentation to understand a complex dataset 'in the wild'
+ - Access non-rectangular data in a database and tidy for visualization
+ - Reproduce figures and evaluate global fisheries decline, particularly Atlantic cod
  
 ## Rubric
 
-### Use of GitHub
+### Use of GitHub (3 points)
  - 0 points for no forked repo or a repo with no unique commits
- - 1 point for at least 1 commit. README not updated
- - 2 points for semi-regular commits, partially updated README
- - 3 points for regular commits, complete README
+ - 1 point for at least 1 commit or commits by only one partner or README that has not been updated
+ - 2 points for semi-regular commits or partially updated README
+ - 3 points for regular commits by both partners and a fully updated README
  
-### Quarto file
- - 0 points for no .qmd file or solely incorrect formatting
- - 1 point for some evidence of knitting to html
- - 2 points for substantial code additions, but not all file paths or plots are working/displaying properly
- - 3 points for well-formatted file that renders properly to html
- 
-### Written analysis
- - 0 points for no written answers to questions
- - 1 point for cursory and incomplete text
- - 2 points for text that provides thorough verbal description of the observed trends and interpretation of their meaning
- - 3 points for highly insightful analysis that cites outside sources and links ideas together (between questions, from classroom discussion)
- 
-### tidvyerse/ggplot code
- - 0 points for no user submitted code
- - 2 points for some attempted code that does not fulfill the assignment
- - 4 points for code that completes the exercises but circumvented or minimally used the tidyverse functions
- - 6 points for succesful code that uses tidyverse syntax and follows the [style guide](https://style.tidyverse.org/)
+### Quarto (2 points)
+ - 0 points for no .qmd file or wholly incorrect formatting
+ - 1 point for mostly correct code and text, but not all file paths or plots are working so the pdf is incompletely rendered
+ - 2 points for well-formatted file that fully renders to pdf
+
+### Code and written analysis (10 points)
+See .qmd file for point distributions. 
+Full points will be given for insightful written analysis and successful code that uses tidyverse syntax and is highly readable. 
+Consult the [tidyverse style guide](https://style.tidyverse.org/) for formatting examples. 
