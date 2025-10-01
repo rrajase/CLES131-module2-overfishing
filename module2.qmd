@@ -11,7 +11,6 @@ editor_options:
 library(tidyverse)
 ```
 
-
 ### Use of GitHub
 
 Link to your forked GH repository: https://github.com/rrajase/CLES131-module2-overfishing#
@@ -46,7 +45,17 @@ One of the main metadata tables is 'stock':
 
 -   How many stocks are there and how many species do they represent?
 
+```{r}
+summary(stock)
+colnames(stock)
+distinct(stock,scientificname)
+```
+
+[There are 1514 stocks representing 398 different species.]{style="color: blue;"}
+
 -   What are the top three most common stocks? (Okay to use common names; these are standardized for fish)
+
+[]{style="color: blue;"}
 
 -   In your own words, describe the unit of observation in the 'stock' table and some associated variables that describe it.
 
@@ -82,27 +91,23 @@ There are two main data tables described in section C, but their key attributes 
 
 -   What is accomplished by joining these tables?
 
-
 ## Overexploitation of Atlantic cod
 
 This database is clearly complex and contains a lot of information. We've grappled with its high dimensionality by exploring and joining tables above. Next, we will take a "bottom-up" approach and evaluate a single species, Atlantic cod. Read this [book chapter](https://pressbooks.pub/extinctionstories/chapter/atlantic-cod/) on Atlantic cod, which serves as a reference for the following questions.
 
 ### Q5 (1 point)
 
-The collapse of the Atlantic cod fisheries is well documented. Let's see if we can visualize that decline with this database. 
+The collapse of the Atlantic cod fisheries is well documented. Let's see if we can visualize that decline with this database.
 
 -   How many unique fish stocks comprise "Atlantic cod" and what regions do they come from?
-
 
 Create a vector of the 'stockid' associated with "Atlantic cod". Then turn your attention to the previously-joined timeseries/tsmetrics table and create a subsetted dataframe with only observations of "Atlantic cod" that have a non-NA value. This table reports many years and many metrics, while we are primarily interested in the years since 1950.
 
 -   Which metrics are most commonly reported for Atlantic cod in this timeframe and what do they mean?
 
-
 ### Q6 (1 point)
 
 Make a timeseries figure for each stock of Atlantic cod. Rather than coloring by the identity of the stock, color by the region it comes from (this may require joining). Use `facet_*()` to plot both metrics in a single code chunk. Connect the points for each stock and focus on the period since 1950. Update until the figure is easily interpretable.
-
 
 -   What happened to Atlantic cod stocks during the period 1950-present? What information does each metric convey?
 
@@ -111,7 +116,6 @@ Make a timeseries figure for each stock of Atlantic cod. Rather than coloring by
 We will recreate a slightly more complex version of a figure from the [Millennium Ecosystem Assessment](https://www.millenniumassessment.org/documents/document.356.aspx.pdf) (Fig. 11).
 
 Selecting a metric that can be added across stocks, calculate the total fish landings for each region of Atlantic cod. Make a plot similar to Fig. 11 and color by region.
-
 
 Which region does Fig. 11 from the MEA correspond to?
 
