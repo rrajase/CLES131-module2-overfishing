@@ -48,16 +48,24 @@ One of the main metadata tables is 'stock':
 ```{r}
 summary(stock)
 colnames(stock)
-distinct(stock,scientificname)
+length(unique(stock$scientificname))
 ```
 
 [There are 1514 stocks representing 398 different species.]{style="color: blue;"}
 
 -   What are the top three most common stocks? (Okay to use common names; these are standardized for fish)
 
-[]{style="color: blue;"}
+```{r}
+sort(count(stock,commonname)$n,decreasing=TRUE)
+count(stock,commonname) |>
+  filter(n>38)
+```
+
+[The top three most common stocks are Chum Salmon, Pink Salmon, and Sockeye salmon.]{style="color: blue;"}
 
 -   In your own words, describe the unit of observation in the 'stock' table and some associated variables that describe it.
+
+[The unit of observation in the stock table is the stock itself, which is described by its id, species name, and region.]{style="color: blue;"}
 
 ### Q2 (1 point)
 
@@ -65,23 +73,57 @@ The next main metadata table is 'assessment':
 
 -   What is the unit of observation in the 'assessment' table? How is this related to the unit of observation in the 'stock' table?
 
+[The unit of observation in the assessment table is each assessment, described by the assessor, and information provided. This is related to each stock in the stock table as each assessment is associated with a specific stock by its id.]{style="color: blue;"}
+
 -   It seems like 'stockid' and 'assessyear' might uniquely identify each assessment. Is this the case? If not, why not?
 
+```{r}
+assessment |>
+  count(stockid, assessyear) |>
+  filter(n>1) # 48 have 2
+
+assessment |>
+  filter(stockid == "ANCHIXa" & assessyear == "1989-2016") |> # see what is different between both entries
+  view() # date recorded and loaded are different!
+
+assessment |>
+  count(assessid) |>
+  filter(n>1) # length 0, each id is unique
+```
+
+[Stockid and assessyear do not uniquely identify each assessment, as some entries have different dates that the data was recorded for that assessment. An actual unique identifier is the assessid.]{style="color: blue;"}
+
 -   Which variable(s) might you use to join 'stock' and 'assessment'?
+
+```{r}
+intersect(colnames(stock), colnames(assessment))
+```
+
+[One variable that could be used to join 'stock' and 'assessment' could be the stockid. Each assessment is done on one stock, which each have a unique id in the stock table. We could do a left join between 'assessment' and 'stock' with the stockid to add full stock info from 'stock' to 'assessment'.]{style="color: blue;"}
 
 ### Q3 (1 point)
 
 In section B of the Database Quick Guide, additional metadata tables are listed in section B. With your data exploration skills, complete the following table:
 
-| B table      | Associated table | join column from B | join column from other |
-|------------------|------------------|------------------|------------------|
-| area         |                  |                    |                        |
-| assessmethod |                  |                    |                        |
-| assessor     |                  |                    |                        |
-| management   |                  |                    |                        |
-| taxonomy     |                  |                    |                        |
+| B table | Associated table | join column from B | join column from other |
+|----|----|----|----|
+| area | stock | areaid | areaid |
+| assessmethod | assessment | methodshort | assessmethod |
+| assessor | assessment | assessorid | assessorid |
+| management | stock, through area | mgmt, management -\> areatype, area | areaid, area -\> areaid, stock |
+| taxonomy | stock | tsn | tsn |
 
 \*Note that assessmethod is not a data.frame, which was perhaps an oversight; consider turning it into one for the ease of using tidyverse functions.
+
+```{r}
+assessmethod <- as.data.frame(assessmethod)
+
+intersect(colnames(stock), colnames(area)) # areaid
+intersect(colnames(assessment), colnames(assessmethod)) # diff name, methodshort in assessmethod = assessmethod in assessment
+intersect(colnames(assessment), colnames(assessor)) # assessorid
+intersect(colnames(stock), colnames(management)) # no direct, mgmt in management = areatype in area
+intersect(colnames(stock), colnames(taxonomy)) # tsn, scientific name
+```
 
 ### Q4 (1 point)
 
